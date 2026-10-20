@@ -10,7 +10,7 @@ a release is corrected by another release and never by moving a tag.
 
 ## [Unreleased]
 
-## [0.1.0] - unreleased
+## [0.1.0] - 2026-10-20
 
 Proposed as `v0.1.0`, the first public release, under the provisional path
 `github.com/hyz-is/arandu-emrtd`. The public name is not confirmed yet. When it
