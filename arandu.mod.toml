@@ -1,0 +1,26 @@
+# What this package declares about itself.
+#
+# The declaration is capability, not intent, and `aru doctor` compares it with
+# what the code imports and calls. A package that says it makes no outbound
+# calls and then holds an HTTP client is rejected, which is what makes the
+# four lines below worth reading before installing anything.
+
+name = "hyz-is/emrtd"
+framework = ">= 0.56"
+profiles = ["conventional", "performance"]
+
+[permissions]
+# It answers no request and opens no connection. It fetches no CSCA, no
+# master list and no CRL: the application hands it the bytes it chose to
+# trust. Nothing leaves the process.
+network = false
+# It reads and writes no file. Chip files, certificates, master lists and
+# CRLs arrive as bytes, and the Report is returned in memory; where the
+# application keeps any of it (in KUAA, sealed in a private Cloudflare R2
+# bucket) is the application's.
+filesystem = false
+# It runs no other program and links none: it is pure Go, written with the
+# standard library alone, and builds with CGO_ENABLED=0.
+exec = false
+# It owns no table.
+migrations = false
